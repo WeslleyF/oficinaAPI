@@ -1,0 +1,32 @@
+﻿@using gestorOficina.Modelo.Interface;
+@using gestorOficina.Modelo.Classes;
+
+@page "/"
+@inject IServico<Estado> servicoEstado;
+
+<PageTitle>Index</PageTitle>
+
+<h1>Hello, world!</h1>
+
+Welcome to your new app.
+
+<SurveyPrompt Title="How is Blazor working for you?" />
+
+@if(estados is not null)
+{
+    @foreach (Estado e in estados)
+    {
+       <h1>@e.UF</h1>
+    }
+}
+
+
+
+@code{
+    private List<Estado> estados;
+    
+    protected override async Task OnInitializedAsync()
+    {
+        estados =  await servicoEstado.Recuperar(null);
+    }
+}
