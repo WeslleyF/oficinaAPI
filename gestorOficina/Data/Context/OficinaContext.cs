@@ -29,7 +29,6 @@ namespace gestorOficina.Data.Context
         public DbSet<Cidade> cidade { get; set; }
         public DbSet<Bairro> bairro { get; set; }
         public DbSet<Funcionario> funcionario { get; set; }
-        public DbSet<Endereco> endereco { get; set; }
 
     }
 }

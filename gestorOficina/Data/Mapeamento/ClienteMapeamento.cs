@@ -20,14 +20,9 @@ namespace gestorOficina.Data.Mapeamento
             builder.Property(C => C.CEP).HasMaxLength(20);
             builder.Property(C => C.Telefone).HasMaxLength(20);
             builder.Property(C => C.Email).HasMaxLength(50);
+            builder.Property(C => C.numero).HasMaxLength(10);
 
             builder.HasKey(C => C.CodCliente);
-
-            // Relacionamento
-            builder.HasOne(C => C.endereco)
-            .WithOne(E => E.cliente)
-            .HasForeignKey<Endereco>(E => E.CodCliente);
-
         }
     }
 }

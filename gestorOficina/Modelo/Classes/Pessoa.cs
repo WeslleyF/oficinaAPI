@@ -15,6 +15,10 @@ namespace gestorOficina.Modelo.Classes
         public string CEP { get; set; }
         public string Telefone { get; set; }
         public string Email { get; set; }
-        public Endereco endereco { get; set; }
+        public string Logradouro { get; set; }
+        public Bairro bairro { get; set; }
+        public Cidade cidade { get; set; }
+        public Estado estado { get; set; }
+        public string numero { get; set; }
     }
 }
