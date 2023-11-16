@@ -22,9 +22,14 @@ namespace OficinaAPI.Servico.Classes
             return _repositorio.Atualizar(instancia);
         }
 
-        public Task<List<Entidade>> Recuperar(Func<Entidade, bool>? where)
+        public List<Entidade> Recuperar(Func<Entidade, bool>? where)
         {
-            return _repositorio.Recuperar(null);
+            return _repositorio.Recuperar(where);
+        }
+
+        public Task<Entidade?> Recuperar(params object?[]? keyValues)
+        {
+            return _repositorio.Recuperar(keyValues);
         }
 
         public Entidade Remover(Entidade instancia)

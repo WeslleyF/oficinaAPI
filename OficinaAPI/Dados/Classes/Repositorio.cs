@@ -33,12 +33,15 @@ namespace OficinaAPI.Dados.Classes
             return instancia;
         }
 
-        public async virtual Task<List<Entidade>> Recuperar(Func<Entidade, bool>? where)
+        public List<Entidade> Recuperar(Func<Entidade, bool>? where)
         {
-            //if (where is null) return await db.ToListAsync();
-            //else return db.Where(where);
+            if (where is null) return db.ToList();
+            return db.Where<Entidade>(where).ToList();
+        }
 
-            return null;
+        public async Task<Entidade?> Recuperar(params object?[]? keyValues)
+        {
+            return await db.FindAsync(keyValues);
         }
 
         public Entidade Remover(Entidade instancia)

@@ -14,11 +14,11 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<OficinaContext>(Options => Options.UseNpgsql(builder.Configuration.GetConnectionString("Conn")));
-builder.Services.AddScoped<IRepositorio<Estado>, RepositorioEstado>();
+builder.Services.AddScoped<IRepositorio<Estado>, Repositorio<Estado>>();
 builder.Services.AddScoped<IServico<Estado>, Servico<Estado>>();
-builder.Services.AddScoped<IRepositorio<Cidade>, RepositorioCidade>();
+builder.Services.AddScoped<IRepositorio<Cidade>, Repositorio<Cidade>>();
 builder.Services.AddScoped<IServico<Cidade>, Servico<Cidade>>();
-builder.Services.AddScoped<IRepositorio<Bairro>, RepositorioBairro>();
+builder.Services.AddScoped<IRepositorio<Bairro>, Repositorio<Bairro>>();
 builder.Services.AddScoped<IServico<Bairro>, Servico<Bairro>>();
 
 
@@ -31,9 +31,9 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
+//app.UseHttpsRedirection();
 
-app.UseAuthorization();
+//app.UseAuthorization();
 
 app.MapControllers();
 
