@@ -21,20 +21,22 @@ builder.Services.AddScoped<IServico<Cidade>, Servico<Cidade>>();
 builder.Services.AddScoped<IRepositorio<Bairro>, Repositorio<Bairro>>();
 builder.Services.AddScoped<IServico<Bairro>, Servico<Bairro>>();
 
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(
+        policy =>
+        {
+            policy.WithOrigins("http://localhost:5173");
+        });
+});
+
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
-
 //app.UseHttpsRedirection();
-
 //app.UseAuthorization();
 
+app.UseCors();
 app.MapControllers();
 
 app.Run();

@@ -6,8 +6,7 @@ using OficinaAPI.Servico.Interfaces;
 namespace OficinaAPI.Controllers
 {
     [Route("api/estado")]
-    [ApiController]
-    public class EstadoController : CrudController<Estado>
+    [ApiController]    public class EstadoController : CrudController<Estado>
     {
         public EstadoController(IServico<Estado> servicoEstado) : base (servicoEstado)
         {
