@@ -17,7 +17,7 @@ namespace OficinaAPI.Controllers
 
         protected override Func<Cidade, bool>? getWhere()
         {
-          string uf = uf = HttpContext.Request.Query["uf"].ToString();
+          string uf = HttpContext.Request.Query["uf"].ToString();
           return c => c.UF == uf;
         }
     }

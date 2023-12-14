@@ -12,6 +12,7 @@ namespace OficinaAPI.Modelo.Classes
     {
         public string CodBairro { get; set; }
         public string Descricao { get; set; }
+        public string CodCidade { get; set; }
         public Cidade cidade { get; set; }
     }
 }
