@@ -16,6 +16,7 @@ namespace OficinaAPI.Dados.Mapeamento
 
             builder.Property(C => C.CodCidade).HasMaxLength(150);
             builder.Property(C => C.Descricao).HasMaxLength(500);
+            builder.HasOne(C => C.estado).WithMany(e => e.cidades).HasForeignKey(c => c.UF);
 
             builder.HasKey(C => C.CodCidade);
         }

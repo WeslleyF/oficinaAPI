@@ -54,13 +54,13 @@ namespace OficinaAPI.Dados.Migrations
                         .HasMaxLength(500)
                         .HasColumnType("character varying(500)");
 
-                    b.Property<string>("estadoUF")
+                    b.Property<string>("UF")
                         .IsRequired()
                         .HasColumnType("character varying(3)");
 
                     b.HasKey("CodCidade");
 
-                    b.HasIndex("estadoUF");
+                    b.HasIndex("UF");
 
                     b.ToTable("cidade");
                 });
@@ -315,8 +315,8 @@ namespace OficinaAPI.Dados.Migrations
             modelBuilder.Entity("OficinaAPI.Modelo.Classes.Cidade", b =>
                 {
                     b.HasOne("OficinaAPI.Modelo.Classes.Estado", "estado")
-                        .WithMany()
-                        .HasForeignKey("estadoUF")
+                        .WithMany("cidades")
+                        .HasForeignKey("UF")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -402,6 +402,11 @@ namespace OficinaAPI.Dados.Migrations
                     b.Navigation("cidade");
 
                     b.Navigation("estado");
+                });
+
+            modelBuilder.Entity("OficinaAPI.Modelo.Classes.Estado", b =>
+                {
+                    b.Navigation("cidades");
                 });
 #pragma warning restore 612, 618
         }
