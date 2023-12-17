@@ -45,7 +45,15 @@ namespace OficinaAPI.core.classes.Controllers
         [Route("{codKey}")]
         public async Task<IActionResult> recuperar(string codKey)
         {
-            return new JsonResult(await _servico.Recuperar(codKey));
+            Task<Entidade?> result;
+            int intkey;
+            
+            if (int.TryParse(codKey, out intkey))
+              result = _servico.Recuperar(intkey);
+            else 
+              result = _servico.Recuperar(codKey);
+
+            return new JsonResult(await result);
         }
 
         protected abstract Func<Entidade, bool>? getWhere();
