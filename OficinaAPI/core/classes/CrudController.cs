@@ -28,10 +28,20 @@ namespace OficinaAPI.core.classes.Controllers
         }
 
         [HttpDelete]
-        [Route("")]
-        public IActionResult remover([FromBody] Entidade entidade)
+        [Route("{codKey}")]
+        public async Task<IActionResult> remover(string codKey)
         {
-            return new JsonResult(_servico.Remover(entidade));
+            Entidade? obj;
+            int intkey;
+            
+            if (int.TryParse(codKey, out intkey))
+              obj = await _servico.Recuperar(intkey);
+            else 
+              obj = await _servico.Recuperar(codKey);
+            
+            if(obj is null) return new JsonResult(null);
+
+            return new JsonResult(_servico.Remover(obj));
         }
 
         [HttpGet]
