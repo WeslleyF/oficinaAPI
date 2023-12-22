@@ -22,6 +22,10 @@ builder.Services.AddScoped<IRepositorio<Bairro>, Repositorio<Bairro>>();
 builder.Services.AddScoped<IServico<Bairro>, Servico<Bairro>>();
 builder.Services.AddScoped<IRepositorio<Cliente>, Repositorio<Cliente>>();
 builder.Services.AddScoped<IServico<Cliente>, Servico<Cliente>>();
+builder.Services.AddScoped<IRepositorio<Servico>, Repositorio<Servico>>();
+builder.Services.AddScoped<IServico<Servico>, Servico<Servico>>();
+builder.Services.AddScoped<INotaServicoRepositorio, NotaServicoRepositorio>();
+builder.Services.AddScoped<INotaServicoServico, NotaServicoServico>();
 
 builder.Services.AddCors(options =>
 {

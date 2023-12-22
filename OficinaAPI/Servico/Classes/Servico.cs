@@ -6,7 +6,7 @@ namespace OficinaAPI.Servico.Classes
 {
     public class Servico<Entidade> : IServico<Entidade> where Entidade : IEntidade
     {
-        private readonly IRepositorio<Entidade> _repositorio;
+        protected readonly IRepositorio<Entidade> _repositorio;
         public Servico(IRepositorio<Entidade> repositorio)
         {
             _repositorio = repositorio;

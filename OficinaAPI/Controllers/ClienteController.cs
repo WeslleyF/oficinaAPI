@@ -6,8 +6,9 @@ using OficinaAPI.core.classes.Controllers;
 
 namespace OficinaAPI.Controllers
 {
-    [Route("api/Cliente")]
-    [ApiController]    public class ClienteController : CrudController<Cliente>
+    [Route("api/cliente")]
+    [ApiController]    
+    public class ClienteController : CrudController<Cliente>
     {
         public ClienteController(IServico<Cliente> servicoCliente) : base (servicoCliente)
         {

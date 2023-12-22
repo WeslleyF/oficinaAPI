@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using OficinaAPI.Dados.Context;
@@ -11,9 +12,11 @@ using OficinaAPI.Dados.Context;
 namespace OficinaAPI.Dados.Migrations
 {
     [DbContext(typeof(OficinaContext))]
-    partial class OficinaContextModelSnapshot : ModelSnapshot
+    [Migration("20231222014625_createNotaServico")]
+    partial class createNotaServico
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -301,9 +304,6 @@ namespace OficinaAPI.Dados.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("codNotaServico"));
 
-                    b.Property<int>("codCliente")
-                        .HasColumnType("integer");
-
                     b.Property<DateTime>("dataCadastro")
                         .HasColumnType("timestamp with time zone");
 
@@ -315,9 +315,7 @@ namespace OficinaAPI.Dados.Migrations
 
                     b.HasKey("codNotaServico");
 
-                    b.HasIndex("codCliente");
-
-                    b.ToTable("notaServico");
+                    b.ToTable("NotaServico");
                 });
 
             modelBuilder.Entity("OficinaAPI.Modelo.Classes.NotaServicoItem", b =>
@@ -349,7 +347,7 @@ namespace OficinaAPI.Dados.Migrations
 
                     b.HasIndex("codServico");
 
-                    b.ToTable("notaServicoItem");
+                    b.ToTable("NotaServicoItem");
                 });
 
             modelBuilder.Entity("OficinaAPI.Modelo.Classes.Servico", b =>
@@ -370,7 +368,7 @@ namespace OficinaAPI.Dados.Migrations
 
                     b.HasKey("codServico");
 
-                    b.ToTable("servico");
+                    b.ToTable("Servico");
                 });
 
             modelBuilder.Entity("OficinaAPI.Modelo.Classes.Bairro", b =>
@@ -458,17 +456,6 @@ namespace OficinaAPI.Dados.Migrations
                     b.Navigation("estado");
                 });
 
-            modelBuilder.Entity("OficinaAPI.Modelo.Classes.NotaServico", b =>
-                {
-                    b.HasOne("OficinaAPI.Modelo.Classes.Cliente", "cliente")
-                        .WithMany("notas")
-                        .HasForeignKey("codCliente")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("cliente");
-                });
-
             modelBuilder.Entity("OficinaAPI.Modelo.Classes.NotaServicoItem", b =>
                 {
                     b.HasOne("OficinaAPI.Modelo.Classes.NotaServico", "notaServico")
@@ -491,11 +478,6 @@ namespace OficinaAPI.Dados.Migrations
             modelBuilder.Entity("OficinaAPI.Modelo.Classes.Cidade", b =>
                 {
                     b.Navigation("bairros");
-                });
-
-            modelBuilder.Entity("OficinaAPI.Modelo.Classes.Cliente", b =>
-                {
-                    b.Navigation("notas");
                 });
 
             modelBuilder.Entity("OficinaAPI.Modelo.Classes.Estado", b =>

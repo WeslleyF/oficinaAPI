@@ -28,6 +28,9 @@ namespace OficinaAPI.Dados.Context
         public DbSet<Cidade> cidade { get; set; }
         public DbSet<Bairro> bairro { get; set; }
         public DbSet<Funcionario> funcionario { get; set; }
+        public DbSet<OficinaAPI.Modelo.Classes.Servico> servico { get; set; }
+        public DbSet<NotaServico> notaServico { get; set; }
+        public DbSet<NotaServicoItem> notaServicoItem { get; set; }
 
     }
 }

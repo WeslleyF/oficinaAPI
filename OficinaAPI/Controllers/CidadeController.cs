@@ -8,7 +8,8 @@ using Microsoft.AspNetCore.Http;
 namespace OficinaAPI.Controllers
 {
     [Route("api/cidade")]
-    [ApiController]    public class CidadeController : CrudController<Cidade>
+    [ApiController]    
+    public class CidadeController : CrudController<Cidade>
     {
         public CidadeController(IServico<Cidade> servicoCidade) : base (servicoCidade)
         {

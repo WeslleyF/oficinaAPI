@@ -11,7 +11,7 @@ namespace OficinaAPI.Dados.Classes
 {
     public class Repositorio<Entidade> : IRepositorio<Entidade> where Entidade : class, IEntidade
     {
-        private readonly OficinaContext _oficinaContext;
+        protected readonly OficinaContext _oficinaContext;
         private readonly DbSet<Entidade> db;
         public Repositorio(OficinaContext oficinaContext)
         {

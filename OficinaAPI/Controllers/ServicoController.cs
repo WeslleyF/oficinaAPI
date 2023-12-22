@@ -6,16 +6,16 @@ using OficinaAPI.core.classes.Controllers;
 
 namespace OficinaAPI.Controllers
 {
-    [Route("api/estado")]
+    [Route("api/servico")]
     [ApiController]    
-    public class EstadoController : CrudController<Estado>
+    public class ServicoController : CrudController<OficinaAPI.Modelo.Classes.Servico>
     {
-        public EstadoController(IServico<Estado> servicoEstado) : base (servicoEstado)
+        public ServicoController(IServico<OficinaAPI.Modelo.Classes.Servico> servicoServico) : base (servicoServico)
         {
             
         }
 
-        protected override Func<Estado, bool>? getWhere()
+        protected override Func<OficinaAPI.Modelo.Classes.Servico, bool>? getWhere()
         {
             return null;
         }
