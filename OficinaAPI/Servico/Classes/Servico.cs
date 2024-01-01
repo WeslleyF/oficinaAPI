@@ -22,9 +22,9 @@ namespace OficinaAPI.Servico.Classes
             return _repositorio.Atualizar(instancia);
         }
 
-        public List<Entidade> Recuperar(Func<Entidade, bool>? where)
+        public List<Entidade> RecuperarTodos(Func<Entidade, bool>? where)
         {
-            return _repositorio.Recuperar(where);
+            return _repositorio.RecuperarTodos(where);
         }
 
         public Task<Entidade?> Recuperar(params object?[]? keyValues)

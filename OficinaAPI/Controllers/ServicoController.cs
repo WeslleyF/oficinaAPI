@@ -19,5 +19,12 @@ namespace OficinaAPI.Controllers
         {
             return null;
         }
+
+        [HttpGet]
+        [Route("lista")]
+        public IActionResult lista()
+        {
+            return new JsonResult(_servico.RecuperarTodos(null));
+        }
     }
 }

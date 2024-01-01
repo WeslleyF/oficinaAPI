@@ -48,7 +48,7 @@ namespace OficinaAPI.core.classes.Controllers
         [Route("")]
         public IActionResult recuperar()
         {
-            return new JsonResult(_servico.Recuperar(getWhere()));
+            return new JsonResult(_servico.RecuperarTodos(getWhere()));
         }
 
         [HttpGet]

@@ -33,7 +33,7 @@ namespace OficinaAPI.Dados.Classes
             return instancia;
         }
 
-        public List<Entidade> Recuperar(Func<Entidade, bool>? where)
+        public List<Entidade> RecuperarTodos(Func<Entidade, bool>? where)
         {
             if (where is null) return db.ToList();
             return db.Where<Entidade>(where).ToList();
