@@ -20,7 +20,7 @@ namespace OficinaAPI.Controllers
         [Route("")]
         public async Task<IActionResult> Adicionar([FromBody] NotaServico notaServico)
         {
-            return new JsonResult(await _notaServicoServico.Adicionar(notaServico));
+            return new JsonResult(notaServico);
         }
 
     }

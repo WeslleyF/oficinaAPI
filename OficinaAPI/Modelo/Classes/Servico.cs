@@ -12,7 +12,7 @@ namespace OficinaAPI.Modelo.Classes
         public int codServico { get; set; }
         public string descricao { get; set; }
         public float valor { get; set; }
-        public List<NotaServicoItem> notaServicoItens { get; set; }
+        public List<NotaServicoItem>? notaServicoItens { get; set; }
 
         public Servico()
         {
