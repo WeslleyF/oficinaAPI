@@ -1,3 +1,4 @@
+using System.Text.Json.Serialization;
 using Microsoft.EntityFrameworkCore;
 using OficinaAPI.Dados.Classes;
 using OficinaAPI.Dados.Context;
@@ -10,10 +11,15 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddControllers();
+builder.Services.AddControllers().AddJsonOptions(x =>
+                x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
+;
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
 builder.Services.AddDbContext<OficinaContext>(Options => Options.UseNpgsql(builder.Configuration.GetConnectionString("Conn")));
+
 builder.Services.AddScoped<IRepositorio<Estado>, Repositorio<Estado>>();
 builder.Services.AddScoped<IServico<Estado>, Servico<Estado>>();
 builder.Services.AddScoped<IRepositorio<Cidade>, Repositorio<Cidade>>();

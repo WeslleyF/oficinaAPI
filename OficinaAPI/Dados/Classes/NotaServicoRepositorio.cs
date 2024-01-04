@@ -14,5 +14,12 @@ namespace OficinaAPI.Dados.Classes
     {
         public NotaServicoRepositorio(OficinaContext oficinaContext) : base(oficinaContext)
         {}
+
+        public async Task<NotaServicoItem> adicionarItem(NotaServicoItem item)
+        {
+          await _oficinaContext.notaServicoItem.AddAsync(item);
+          _oficinaContext.SaveChanges();
+          return (item);
+        }
     }
 }

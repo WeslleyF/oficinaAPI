@@ -5,6 +5,6 @@ namespace OficinaAPI.Servico.Interfaces
 {
     public interface INotaServicoServico: IServico<NotaServico>
     {
-        
+        public Task<NotaServico> Emitir(NotaServico notaServico);
     }
 }

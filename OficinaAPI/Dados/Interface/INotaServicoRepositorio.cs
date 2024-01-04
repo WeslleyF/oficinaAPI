@@ -5,6 +5,6 @@ namespace OficinaAPI.Dados.Interface
 {
     public interface INotaServicoRepositorio : IRepositorio<NotaServico>
     {
-        
+        public Task<NotaServicoItem> adicionarItem(NotaServicoItem item);
     }
 }
