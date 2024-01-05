@@ -23,5 +23,19 @@ namespace OficinaAPI.Controllers
             return new JsonResult(await _notaServicoServico.Emitir(notaServico));
         }
 
+        [HttpGet]
+        [Route("")]
+        public async Task<IActionResult> Recuperar()
+        {
+            return new JsonResult(await _notaServicoServico.RecuperarComCliente());
+        }
+
+        [HttpGet]
+        [Route("itens/{codNotaServico}")]
+        public async Task<IActionResult> RecuperarItens(int codNotaServico)
+        {
+            return new JsonResult(await _notaServicoServico.recuperarItens(codNotaServico));
+        }
+
     }
 }

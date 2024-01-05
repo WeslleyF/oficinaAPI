@@ -61,5 +61,15 @@ namespace OficinaAPI.Servico.Classes
 
            return documento;
         }
+
+        public async Task<List<NotaServico>> RecuperarComCliente()
+        {
+          return await _repositorioNotaServico.RecuperarComCliente();
+        }
+
+        public async Task<List<NotaServicoItem>> recuperarItens(int codNotaServico)
+        {
+          return await _repositorioNotaServico.recuperarItens(codNotaServico);
+        }
     }
 }

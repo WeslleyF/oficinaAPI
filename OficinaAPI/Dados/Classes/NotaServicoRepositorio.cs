@@ -21,5 +21,14 @@ namespace OficinaAPI.Dados.Classes
           _oficinaContext.SaveChanges();
           return (item);
         }
+        public async Task<List<NotaServicoItem>> recuperarItens(int codNotaServico)
+        {
+          return await _oficinaContext.notaServicoItem.Where(nsi => nsi.codNotaServico == codNotaServico).Include(nsi => nsi.servico).ToListAsync();
+        }
+
+        public async Task<List<NotaServico>> RecuperarComCliente()
+        {
+          return await _oficinaContext.notaServico.Include(ns => ns.cliente).ToListAsync();
+        }
     }
 }
